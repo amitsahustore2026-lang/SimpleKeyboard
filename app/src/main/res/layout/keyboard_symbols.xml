@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/symbols_keyboard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <!-- Row 1: ~ ` | · √ π ÷ × ¶ Δ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_row_height"
+        android:orientation="horizontal">
+
+        <Button style="@style/KeyButton" android:text="~" android:tag="~" />
+        <Button style="@style/KeyButton" android:text="`" android:tag="`" />
+        <Button style="@style/KeyButton" android:text="|" android:tag="|" />
+        <Button style="@style/KeyButton" android:text="·" android:tag="·" />
+        <Button style="@style/KeyButton" android:text="√" android:tag="√" />
+        <Button style="@style/KeyButton" android:text="π" android:tag="π" />
+        <Button style="@style/KeyButton" android:text="÷" android:tag="÷" />
+        <Button style="@style/KeyButton" android:text="×" android:tag="×" />
+        <Button style="@style/KeyButton" android:text="¶" android:tag="¶" />
+        <Button style="@style/KeyButton" android:text="Δ" android:tag="Δ" />
+    </LinearLayout>
+
+    <!-- Row 2: £ ¢ € ¥ ^ ° = { } \ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_row_height"
+        android:orientation="horizontal">
+
+        <Button style="@style/KeyButton" android:text="£" android:tag="£" />
+        <Button style="@style/KeyButton" android:text="¢" android:tag="¢" />
+        <Button style="@style/KeyButton" android:text="€" android:tag="€" />
+        <Button style="@style/KeyButton" android:text="¥" android:tag="¥" />
+        <Button style="@style/KeyButton" android:text="^" android:tag="^" />
+        <Button style="@style/KeyButton" android:text="°" android:tag="°" />
+        <Button style="@style/KeyButton" android:text="=" android:tag="=" />
+        <Button style="@style/KeyButton" android:text="{" android:tag="{" />
+        <Button style="@style/KeyButton" android:text="}" android:tag="}" />
+        <Button style="@style/KeyButton" android:text="\\" android:tag="\\" />
+    </LinearLayout>
+
+    <!-- Row 3: 123, % © ® ™ ✓ [ ], backspace -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_row_height"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_weight="1.5"
+            android:text="123"
+            android:tag="TO_NUMBERS" />
+
+        <Button style="@style/KeyButton" android:text="%" android:tag="%" />
+        <Button style="@style/KeyButton" android:text="©" android:tag="©" />
+        <Button style="@style/KeyButton" android:text="®" android:tag="®" />
+        <Button style="@style/KeyButton" android:text="™" android:tag="™" />
+        <Button style="@style/KeyButton" android:text="✓" android:tag="✓" />
+        <Button style="@style/KeyButton" android:text="[" android:tag="[" />
+        <Button style="@style/KeyButton" android:text="]" android:tag="]" />
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_weight="1.5"
+            android:text="⌫"
+            android:tag="BACKSPACE" />
+    </LinearLayout>
+
+    <!-- Row 4: ABC, comma, globe, space, period, enter -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_row_height"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_weight="1.5"
+            android:text="ABC"
+            android:tag="TO_LETTERS" />
+
+        <Button style="@style/KeyButton" android:text="," android:tag="," />
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:text="🌐"
+            android:tag="LANG" />
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_weight="5"
+            android:text="Space"
+            android:tag="SPACE" />
+
+        <Button style="@style/KeyButton" android:text="." android:tag="." />
+
+        <Button
+            style="@style/AccentKeyButton"
+            android:layout_weight="1.5"
+            android:text="⏎"
+            android:tag="ENTER" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/formatter_settings"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/clipboard_manager_height"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <!-- Title + close -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Clipboard Formatter"
+            android:textColor="@color/on_surface"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_weight="0"
+            android:text="✕"
+            android:tag="CLOSE_FORMATTER" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Rule list panel -->
+        <LinearLayout
+            android:id="@+id/formatter_list_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/toggle_formatter_master"
+                    style="@style/SpecialKeyButton"
+                    android:text="Formatter: OFF"
+                    android:textSize="11sp"
+                    android:tag="TOGGLE_FORMATTER_MASTER" />
+
+                <Button
+                    android:id="@+id/toggle_auto_format"
+                    style="@style/SpecialKeyButton"
+                    android:text="Auto: OFF"
+                    android:textSize="11sp"
+                    android:tag="TOGGLE_AUTO_FORMAT" />
+
+                <Button
+                    android:id="@+id/toggle_phone_mode"
+                    style="@style/SpecialKeyButton"
+                    android:text="Phone: OFF"
+                    android:textSize="11sp"
+                    android:tag="TOGGLE_PHONE_MODE" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/formatter_rules_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="4dp"
+                android:clipToPadding="false" />
+
+            <Button
+                style="@style/AccentKeyButton"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="4dp"
+                android:text="+ Add Rule"
+                android:tag="ADD_FORMATTER_RULE" />
+        </LinearLayout>
+
+        <!-- Rule editor panel -->
+        <ScrollView
+            android:id="@+id/formatter_rule_editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <EditText
+                    android:id="@+id/rule_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:hint="Rule name"
+                    android:textColorHint="@color/special_key_normal"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/key_bg"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="4dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/rule_type_chip_row"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button style="@style/SpecialKeyButton" android:layout_width="110dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove first N" android:tag="REMOVE_FIRST_N" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="105dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove last N" android:tag="REMOVE_LAST_N" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="90dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove +" android:tag="REMOVE_PLUS" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="130dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove country code" android:tag="REMOVE_COUNTRY_CODE" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="100dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Digits only" android:tag="DIGITS_ONLY" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="110dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove spaces" android:tag="REMOVE_SPACES" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="130dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Remove special chars" android:tag="REMOVE_SPECIAL_CHARS" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="100dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Replace text" android:tag="REPLACE_TEXT" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="90dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Trim spaces" android:tag="TRIM_SPACES" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="90dp" android:layout_height="match_parent" android:textSize="10sp" android:text="UPPERCASE" android:tag="UPPERCASE" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="90dp" android:layout_height="match_parent" android:textSize="10sp" android:text="lowercase" android:tag="LOWERCASE" />
+                        <Button style="@style/SpecialKeyButton" android:layout_width="100dp" android:layout_height="match_parent" android:textSize="10sp" android:text="Custom regex" android:tag="CUSTOM_REGEX" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/rule_selected_type_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Selected type: (none)"
+                    android:textColor="@color/on_primary_container"
+                    android:textSize="11sp" />
+
+                <EditText
+                    android:id="@+id/rule_param1_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="4dp"
+                    android:hint="Value"
+                    android:textColorHint="@color/special_key_normal"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/key_bg"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/rule_param2_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="4dp"
+                    android:hint="Replace with (only for Replace text / Custom regex)"
+                    android:textColorHint="@color/special_key_normal"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/key_bg"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/rule_priority_input"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="Priority (0 = first)"
+                        android:textColorHint="@color/special_key_normal"
+                        android:textColor="@color/on_surface"
+                        android:background="@drawable/key_bg"
+                        android:inputType="number"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp" />
+
+                    <Button
+                        android:id="@+id/rule_phone_only_toggle"
+                        style="@style/SpecialKeyButton"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="4dp"
+                        android:textSize="10sp"
+                        android:text="Phone field only: OFF"
+                        android:tag="TOGGLE_RULE_PHONE_ONLY" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/rule_test_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="Test input"
+                    android:text="+91 98765 43210"
+                    android:textColorHint="@color/special_key_normal"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/key_bg"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/rule_preview_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Preview: "
+                    android:textColor="@color/on_primary_container"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/SpecialKeyButton"
+                        android:text="Cancel"
+                        android:tag="CANCEL_RULE_EDIT" />
+
+                    <Button
+                        style="@style/AccentKeyButton"
+                        android:text="Save Rule"
+                        android:tag="SAVE_RULE" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>

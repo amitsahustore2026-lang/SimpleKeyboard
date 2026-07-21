@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/keyboard_background">
+
+    <!-- Smart Toolbar: Clipboard and Paste are permanent/locked (never hidden).
+         The remaining items (Voice/Emoji/GIF/Translate/Undo/Redo/Settings) are
+         built dynamically in Kotlin from ToolbarPrefs (visibility + order),
+         so this row only needs to declare its two fixed slots plus a
+         scrollable container for everything else. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp">
+
+        <Button
+            android:id="@+id/clipboard_toolbar_button"
+            style="@style/SpecialKeyButton"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_weight="0"
+            android:text="📋"
+            android:tag="CLIPBOARD_TOGGLE" />
+
+        <Button
+            android:id="@+id/paste_toolbar_button"
+            style="@style/SpecialKeyButton"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_weight="0"
+            android:layout_marginStart="4dp"
+            android:text="📥"
+            android:tag="PASTE_LATEST" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/toolbar_extra_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- Quick Actions Bar: contextual buttons based on the focused field's
+         type and the most recently copied clipboard item's category.
+         Hidden automatically in password fields. -->
+    <HorizontalScrollView
+        android:id="@+id/quick_actions_bar_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:scrollbars="none"
+        android:paddingBottom="4dp">
+
+        <LinearLayout
+            android:id="@+id/quick_actions_bar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
+    </HorizontalScrollView>
+
+    <!-- Recent Clipboard Bar: latest 5 copied items, hidden until the toolbar button is tapped -->
+    <HorizontalScrollView
+        android:id="@+id/recent_clip_bar_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:scrollbars="none"
+        android:paddingBottom="4dp">
+
+        <LinearLayout
+            android:id="@+id/recent_clip_bar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
+    </HorizontalScrollView>
+
+    <!-- Format Preview Bar: shown only when the Smart Clipboard Formatter has a
+         pending Original vs Formatted choice for the user to confirm -->
+    <LinearLayout
+        android:id="@+id/format_preview_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@color/key_normal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/format_preview_original"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/special_key_normal"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/format_preview_formatted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/on_primary_container"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/SpecialKeyButton"
+                android:text="Paste Original"
+                android:textSize="11sp"
+                android:tag="PASTE_PREVIEW_ORIGINAL" />
+
+            <Button
+                style="@style/AccentKeyButton"
+                android:text="Paste Formatted"
+                android:textSize="11sp"
+                android:tag="PASTE_PREVIEW_FORMATTED" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <include layout="@layout/keyboard_letters" />
+
+        <include layout="@layout/keyboard_numbers" />
+
+        <include layout="@layout/keyboard_symbols" />
+
+        <include layout="@layout/clipboard_manager" />
+
+        <include layout="@layout/formatter_settings" />
+
+        <include layout="@layout/toolbar_settings" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="key_row_height">50dp</dimen>
+    <dimen name="toolbar_height">40dp</dimen>
+    <dimen name="clipboard_manager_height">220dp</dimen>
+</resources>

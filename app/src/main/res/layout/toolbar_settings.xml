@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar_settings"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/clipboard_manager_height"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Toolbar Settings"
+            android:textColor="@color/on_surface"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            style="@style/SpecialKeyButton"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_weight="0"
+            android:text="✕"
+            android:tag="CLOSE_TOOLBAR_SETTINGS" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="📋 Clipboard and 📥 Paste are always shown and can't be hidden or moved."
+                android:textColor="@color/special_key_normal"
+                android:textSize="11sp" />
+
+            <!-- Voice -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="🎤 Voice" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_VOICE" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_VOICE" />
+                <Button android:id="@+id/toolbar_toggle_VOICE" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_VOICE" />
+            </LinearLayout>
+
+            <!-- Emoji -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="😊 Emoji" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_EMOJI" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_EMOJI" />
+                <Button android:id="@+id/toolbar_toggle_EMOJI" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_EMOJI" />
+            </LinearLayout>
+
+            <!-- GIF -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="🎞 GIF" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_GIF" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_GIF" />
+                <Button android:id="@+id/toolbar_toggle_GIF" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_GIF" />
+            </LinearLayout>
+
+            <!-- Translate -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="🌍 Translate" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_TRANSLATE" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_TRANSLATE" />
+                <Button android:id="@+id/toolbar_toggle_TRANSLATE" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_TRANSLATE" />
+            </LinearLayout>
+
+            <!-- Undo -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="↶ Undo" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_UNDO" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_UNDO" />
+                <Button android:id="@+id/toolbar_toggle_UNDO" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_UNDO" />
+            </LinearLayout>
+
+            <!-- Redo -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="↷ Redo" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_REDO" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_REDO" />
+                <Button android:id="@+id/toolbar_toggle_REDO" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_REDO" />
+            </LinearLayout>
+
+            <!-- Settings -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="⚙ Settings" android:textColor="@color/on_surface" android:textSize="13sp" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↑" android:tag="TOOLBAR_UP_SETTINGS" />
+                <Button style="@style/SpecialKeyButton" android:layout_width="34dp" android:layout_height="match_parent" android:text="↓" android:tag="TOOLBAR_DOWN_SETTINGS" />
+                <Button android:id="@+id/toolbar_toggle_SETTINGS" style="@style/SpecialKeyButton" android:layout_width="56dp" android:layout_height="match_parent" android:textSize="10sp" android:text="ON" android:tag="TOOLBAR_TOGGLE_SETTINGS" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

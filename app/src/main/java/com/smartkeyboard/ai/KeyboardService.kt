@@ -1040,7 +1040,7 @@ class KeyboardService : InputMethodService() {
     }
 
     /**
-     * Handles the TOOLBAR_TOGGLE_*/TOOLBAR_UP_*/TOOLBAR_DOWN_* buttons from
+     * Handles the TOOLBAR_TOGGLE_, TOOLBAR_UP_, TOOLBAR_DOWN_ buttons from
      * the Toolbar Settings page. Returns true if the tag was handled, so
      * the caller can skip the main key-dispatch table entirely for these.
      */
